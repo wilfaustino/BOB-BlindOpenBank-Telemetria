@@ -2,10 +2,10 @@
   "name": "bob-blindopenbank-telemetria",
   "version": "1.0.0",
   "description": "Aplicação de supervisão e telemetria do BOB - Blind Open Bank",
-  "main": "/src/index.js",
+  "main": "./src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon my_file.js"
+    "start": "nodemon ./src/index.js"
   },
   "repository": {
     "type": "git",
@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/wilfaustino/BOB-BlindOpenBank-Telemetria/issues"
   },
-  "homepage": "https://github.com/wilfaustino/BOB-BlindOpenBank-Telemetria#readme"
+  "homepage": "https://github.com/wilfaustino/BOB-BlindOpenBank-Telemetria#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
