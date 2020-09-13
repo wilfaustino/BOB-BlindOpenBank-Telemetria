@@ -12,7 +12,7 @@ app.use('/images', express.static('images'));
 app.use('/css', express.static('css'));
 
 app.get('/', function(req, res) {
-    res.render('dashboard', { title: 'Hey', message: "Hello there!" });
+    res.render('dashboard', { test: '' });
 });
 
 app.listen(port, function() {
