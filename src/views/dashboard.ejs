@@ -11,24 +11,76 @@
     <div class="telemetria"><img src="/images/topo.jpg"></div>
 
     <h1>Telemetria</h1>
+
+    <div class="status">
+        <div class="square">
+            <div class="title">Total registros</div>
+            <div class="number"><%= data.totalRegisters %></div>
+        </div>
+    </div>
     
     <hr>
 
     <div class="content">
 
-        <div class="line">
-            {} {}
-        </div>
-
-        <div class="line">
-            <%= test %>
-        </div>
+        <div id="atividades-chart"></div>
+        <div id="horas-chart"></div>
 
     </div>
-
+    
     <footer>
         BOB - Blind Open Bank - 2020
     </footer>
+    
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    
+    <script type="text/javascript">
+        google.charts.load('current', {packages: ['corechart']});
+        google.charts.setOnLoadCallback(drawChart);
+        
+        function drawChart() {
+
+            var data = google.visualization.arrayToDataTable([
+                ['Ação', 'Quantidade'],
+                <% for(d in data.registerTypes){ %>
+                    ['<%= d %>',<%= data.registerTypes[d].qtd %>],
+                <% } %>
+            ]);
+            
+            var options = {
+                title: 'Atividades',
+                chartArea: {width: '93%', height: '90%', left: '0'},
+            };
+            
+            var chart = new google.visualization.PieChart(document.getElementById('atividades-chart'));
+            
+            chart.draw(data, options);
+        }
+
+        google.charts.setOnLoadCallback(drawBackgroundColor);
+
+        function drawBackgroundColor() {
+            var data = new google.visualization.DataTable();
+            data.addColumn('number', 'Atividades');
+            data.addColumn('number', 'Hora');
+
+            data.addRows([
+                <% for(let i=0;i<=24;i++){ %>
+                    [<%= i %>,<%= data.todayRegisters[i] ? data.todayRegisters[i] : 0 %>],
+                <% } %>
+            ]);
+
+            var options = {
+                title: 'Atividades hoje',
+                chartArea: {width: '93%', height: '90%', left: '50'},
+                hAxis: { title: 'Total de atividades' },
+                vAxis: { title: 'Hora' }
+            };
+
+            var chart = new google.visualization.ColumnChart(document.getElementById('horas-chart'));
+            chart.draw(data, options);
+        }
+        </script>
 
 </body>
 </html>
