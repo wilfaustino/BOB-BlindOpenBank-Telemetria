@@ -61,13 +61,13 @@ div.content{
 }
 
 div#atividades-chart{
-    width: 35%;
+    width: 30%;
     display: inline-block;
     height: 350px;
 }
 
 div#horas-chart{
-    width: 55%;
+    width: 60%;
     display: inline-block;
     height: 350px;
 }
