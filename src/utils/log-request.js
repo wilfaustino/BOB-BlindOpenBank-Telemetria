@@ -8,7 +8,7 @@ module.exports = function(){
         path: '/logs', //API path
         method: 'GET', //method
         headers: {
-            'Authentication': 'bob-token-api'
+            'Authentication': 'Ym9iLXRva2VuLWFwaQ=='
         }
     };
     
