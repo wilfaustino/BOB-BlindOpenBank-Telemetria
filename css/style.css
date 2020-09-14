@@ -1,3 +1,7 @@
+html {
+    /* background-color: #FFFF00; */
+}
+
 body{
     margin: 0;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -8,9 +12,33 @@ h1{
     font-size: 36px;
 }
 
+div.status{
+    text-align: center;
+    position: absolute;
+    margin-top: -88px;
+    margin-left: 250px;
+}
+
+div.status .square{
+    display: inline-block;
+    border: 1px solid #C0C0C0;
+    padding: 5px;
+}
+
+div.status .square .title{
+    color: #888;
+    font-size: 13px;
+}
+
+div.status .square .number{
+    font-size: 45px;
+    font-weight: bolder;
+    color: green;
+}
+
 div.telemetria {
     margin: 0 auto;
-    text-align: right;
+    text-align: center;
     background-color: #103971;
 }
 
@@ -27,9 +55,19 @@ footer{
 }
 
 div.content{
-    
+    width: 98%;
+    text-align: center;
+    margin: 0 auto;
 }
 
-div.content .line{
-    
+div#atividades-chart{
+    width: 35%;
+    display: inline-block;
+    height: 350px;
+}
+
+div#horas-chart{
+    width: 55%;
+    display: inline-block;
+    height: 350px;
 }
